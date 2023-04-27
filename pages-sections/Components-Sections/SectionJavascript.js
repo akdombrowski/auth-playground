@@ -26,7 +26,13 @@ import styles from "styles/jss/nextjs-material-kit/pages/componentsSections/java
 const useStyles = makeStyles(styles);
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="down" ref={ref} {...props} />;
+  return (
+    <Slide
+      direction="down"
+      ref={ref}
+      {...props}
+    />
+  );
 });
 
 Transition.displayName = "Transition";
@@ -45,17 +51,23 @@ export default function SectionJavascript() {
           <h2>Javascript components</h2>
         </div>
         <GridContainer>
-          <GridItem xs={12} sm={12} md={6}>
+          <GridItem
+            xs={12}
+            sm={12}
+            md={6}>
             <div className={classes.title}>
               <h3>Modal</h3>
             </div>
             <GridContainer>
-              <GridItem xs={12} sm={12} md={6} lg={4}>
+              <GridItem
+                xs={12}
+                sm={12}
+                md={6}
+                lg={4}>
                 <Button
                   color="primary"
                   block
-                  onClick={() => setClassicModal(true)}
-                >
+                  onClick={() => setClassicModal(true)}>
                   <LibraryBooks className={classes.icon} />
                   Classic
                 </Button>
@@ -69,28 +81,23 @@ export default function SectionJavascript() {
                   keepMounted
                   onClose={() => setClassicModal(false)}
                   aria-labelledby="classic-modal-slide-title"
-                  aria-describedby="classic-modal-slide-description"
-                >
+                  aria-describedby="classic-modal-slide-description">
                   <DialogTitle
                     id="classic-modal-slide-title"
-                    disableTypography
-                    className={classes.modalHeader}
-                  >
+                    className={classes.modalHeader}>
                     <IconButton
                       className={classes.modalCloseButton}
                       key="close"
                       aria-label="Close"
                       color="inherit"
-                      onClick={() => setClassicModal(false)}
-                    >
+                      onClick={() => setClassicModal(false)}>
                       <Close className={classes.modalClose} />
                     </IconButton>
-                    <h4 className={classes.modalTitle}>Modal title</h4>
+                    Modal title
                   </DialogTitle>
                   <DialogContent
                     id="classic-modal-slide-description"
-                    className={classes.modalBody}
-                  >
+                    className={classes.modalBody}>
                     <p>
                       Far far away, behind the word mountains, far from the
                       countries Vokalia and Consonantia, there live the blind
@@ -106,26 +113,33 @@ export default function SectionJavascript() {
                     </p>
                   </DialogContent>
                   <DialogActions className={classes.modalFooter}>
-                    <Button color="transparent" simple>
+                    <Button
+                      color="transparent"
+                      simple>
                       Nice Button
                     </Button>
                     <Button
                       onClick={() => setClassicModal(false)}
                       color="danger"
-                      simple
-                    >
+                      simple>
                       Close
                     </Button>
                   </DialogActions>
                 </Dialog>
               </GridItem>
             </GridContainer>
-            <GridItem xs={12} sm={12} md={12}>
+            <GridItem
+              xs={12}
+              sm={12}
+              md={12}>
               <div className={classes.title}>
                 <h3>Datetime Picker</h3>
               </div>
               <GridContainer>
-                <GridItem xs={12} sm={12} md={6}>
+                <GridItem
+                  xs={12}
+                  sm={12}
+                  md={6}>
                   <InputLabel className={classes.label}>
                     Datetime Picker
                   </InputLabel>
@@ -139,7 +153,10 @@ export default function SectionJavascript() {
               </GridContainer>
             </GridItem>
           </GridItem>
-          <GridItem xs={12} sm={12} md={6}>
+          <GridItem
+            xs={12}
+            sm={12}
+            md={6}>
             <div className={classes.title}>
               <h3>Popovers</h3>
             </div>
@@ -160,8 +177,7 @@ export default function SectionJavascript() {
               transformOrigin={{
                 vertical: "center",
                 horizontal: "right",
-              }}
-            >
+              }}>
               <h3 className={classes.popoverHeader}>Popover on left</h3>
               <div className={classes.popoverBody}>
                 Here will be some very useful information about his popover.
@@ -185,8 +201,7 @@ export default function SectionJavascript() {
               transformOrigin={{
                 vertical: "bottom",
                 horizontal: "center",
-              }}
-            >
+              }}>
               <h3 className={classes.popoverHeader}>Popover on top</h3>
               <div className={classes.popoverBody}>
                 Here will be some very useful information about his popover.
@@ -209,8 +224,7 @@ export default function SectionJavascript() {
               transformOrigin={{
                 vertical: "top",
                 horizontal: "center",
-              }}
-            >
+              }}>
               <h3 className={classes.popoverHeader}>Popover on bottom</h3>
               <div className={classes.popoverBody}>
                 Here will be some very useful information about his popover.
@@ -233,8 +247,7 @@ export default function SectionJavascript() {
               transformOrigin={{
                 vertical: "center",
                 horizontal: "left",
-              }}
-            >
+              }}>
               <h3 className={classes.popoverHeader}>Popover on right</h3>
               <div className={classes.popoverBody}>
                 Here will be some very useful information about his popover.
@@ -249,32 +262,28 @@ export default function SectionJavascript() {
               id="tooltip-left"
               title="Tooltip on left"
               placement="left"
-              classes={{ tooltip: classes.tooltip }}
-            >
+              classes={{ tooltip: classes.tooltip }}>
               <Button>On left</Button>
             </Tooltip>
             <Tooltip
               id="tooltip-top"
               title="Tooltip on top"
               placement="top"
-              classes={{ tooltip: classes.tooltip }}
-            >
+              classes={{ tooltip: classes.tooltip }}>
               <Button>On top</Button>
             </Tooltip>
             <Tooltip
               id="tooltip-bottom"
               title="Tooltip on bottom"
               placement="bottom"
-              classes={{ tooltip: classes.tooltip }}
-            >
+              classes={{ tooltip: classes.tooltip }}>
               <Button>On bottom</Button>
             </Tooltip>
             <Tooltip
               id="tooltip-right"
               title="Tooltip on right"
               placement="right"
-              classes={{ tooltip: classes.tooltip }}
-            >
+              classes={{ tooltip: classes.tooltip }}>
               <Button>On right</Button>
             </Tooltip>
           </GridItem>
