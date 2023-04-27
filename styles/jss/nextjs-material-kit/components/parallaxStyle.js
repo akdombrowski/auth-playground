@@ -31,7 +31,7 @@ const parallaxStyle = (theme) => ({
     height: "380px",
   },
   parallaxResponsive: {
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       minHeight: "660px",
     },
   },

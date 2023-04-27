@@ -29,7 +29,7 @@ const navbarsStyle = (theme) => ({
     minHeight: "740px",
   },
   formControl: {
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       margin: "10px 0 0 15px !important",
       color: grayColor,
     },
@@ -51,7 +51,7 @@ const navbarsStyle = (theme) => ({
     borderRadius: "50%",
   },
   imageDropdownButton: {
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       top: "0",
       margin: "5px 15px",
     },

@@ -90,7 +90,8 @@ export default function SectionJavascript() {
                       key="close"
                       aria-label="Close"
                       color="inherit"
-                      onClick={() => setClassicModal(false)}>
+                      onClick={() => setClassicModal(false)}
+                      size="large">
                       <Close className={classes.modalClose} />
                     </IconButton>
                     Modal title

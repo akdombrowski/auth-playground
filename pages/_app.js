@@ -20,7 +20,7 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 
 import PageChange from "components/PageChange/PageChange.js";
 
@@ -87,9 +87,11 @@ export default class MyApp extends App {
           />
           <title>NextJS Material Kit by Creative Tim</title>
         </Head>
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
-        </ThemeProvider>
+        <StyledEngineProvider injectFirst>
+          <ThemeProvider theme={theme}>
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </StyledEngineProvider>
       </React.Fragment>
     );
   }
