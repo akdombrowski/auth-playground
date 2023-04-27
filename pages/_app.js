@@ -16,11 +16,15 @@
 
 */
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
-import { createTheme, ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
+import {
+  createTheme,
+  ThemeProvider,
+  StyledEngineProvider,
+} from "@mui/material/styles";
 
 import PageChange from "components/PageChange/PageChange.js";
 
@@ -29,10 +33,8 @@ import "styles/scss/nextjs-material-kit.scss?v=1.2.0";
 Router.events.on("routeChangeStart", (url) => {
   console.log(`Loading: ${url}`);
   document.body.classList.add("body-page-transition");
-  ReactDOM.render(
-    <PageChange path={url} />,
-    document.getElementById("page-transition")
-  );
+  const pageTransition = document.getElementById("page-transition");
+  pageTransition.render(<PageChange path={url} />);
 });
 Router.events.on("routeChangeComplete", () => {
   ReactDOM.unmountComponentAtNode(document.getElementById("page-transition"));
