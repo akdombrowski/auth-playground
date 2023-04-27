@@ -34,7 +34,8 @@ Router.events.on("routeChangeStart", (url) => {
   console.log(`Loading: ${url}`);
   document.body.classList.add("body-page-transition");
   const pageTransition = document.getElementById("page-transition");
-  pageTransition.render(<PageChange path={url} />);
+  const root = createRoot(pageTransition)
+  root.render(<PageChange path={url} />);
 });
 Router.events.on("routeChangeComplete", () => {
   ReactDOM.unmountComponentAtNode(document.getElementById("page-transition"));
