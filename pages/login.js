@@ -39,7 +39,9 @@ export default function LoginPage(props) {
         brand="auth playground"
         color="transparent"
         rightLinks={
-          <List className={classes.list}>
+          <List
+            className={classes.list}
+            sx={{ display: "flex" }}>
             <ListItem className={classes.listItem}>
               <Button
                 href="#pablo"
