@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import { unmountComponentAtNode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "next/app";
 import Head from "next/head";
@@ -34,15 +34,15 @@ Router.events.on("routeChangeStart", (url) => {
   console.log(`Loading: ${url}`);
   document.body.classList.add("body-page-transition");
   const pageTransition = document.getElementById("page-transition");
-  const root = createRoot(pageTransition)
+  const root = createRoot(pageTransition);
   root.render(<PageChange path={url} />);
 });
 Router.events.on("routeChangeComplete", () => {
-  ReactDOM.unmountComponentAtNode(document.getElementById("page-transition"));
+  unmountComponentAtNode(document.getElementById("page-transition"));
   document.body.classList.remove("body-page-transition");
 });
 Router.events.on("routeChangeError", () => {
-  ReactDOM.unmountComponentAtNode(document.getElementById("page-transition"));
+  unmountComponentAtNode(document.getElementById("page-transition"));
   document.body.classList.remove("body-page-transition");
 });
 
@@ -82,7 +82,7 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <React.Fragment>
+      <>
         <Head>
           <meta
             name="viewport"
@@ -95,7 +95,7 @@ export default class MyApp extends App {
             <Component {...pageProps} />
           </ThemeProvider>
         </StyledEngineProvider>
-      </React.Fragment>
+      </>
     );
   }
 }

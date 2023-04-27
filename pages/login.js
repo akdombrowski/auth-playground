@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 // @mui/material components
 import { makeStyles } from "@mui/styles";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -26,7 +26,7 @@ import styles from "styles/jss/nextjs-material-kit/pages/loginPage.js";
 const useStyles = makeStyles(styles);
 
 export default function LoginPage(props) {
-  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   setTimeout(function () {
     setCardAnimation("");
   }, 700);
