@@ -1,10 +1,14 @@
 import React from "react";
 
-// mterial-ui components
-import { makeStyles } from "@mui/styles";
+import { styled } from '@mui/material/styles';
+const PREFIX = 'Clearfix';
 
-const styles = {
-  clearfix: {
+const classes = {
+  clearfix: `${PREFIX}-clearfix`
+};
+
+const Root = styled('div')({
+  [`&.${classes.clearfix}`]: {
     "&:after,&:before": {
       display: "table",
       content: '" "',
@@ -13,13 +17,11 @@ const styles = {
       clear: "both",
     },
   },
-};
-
-const useStyles = makeStyles(styles);
+});
 
 export default function Clearfix() {
-  const classes = useStyles();
-  return <div className={classes.clearfix} />;
+
+  return <Root className={classes.clearfix} />;
 }
 
 Clearfix.propTypes = {};

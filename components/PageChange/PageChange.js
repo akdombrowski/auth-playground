@@ -1,19 +1,27 @@
 import React from "react";
 
-// @mui/material components
-import { makeStyles } from "@mui/styles";
+import { styled } from '@mui/material/styles';
 import CircularProgress from "@mui/material/CircularProgress";
 
 // core components
 import { infoColor, title } from "styles/jss/nextjs-material-kit.js";
 
-const useStyles = makeStyles({
-  progress: {
+const PREFIX = 'PageChange';
+
+const classes = {
+  progress: `${PREFIX}-progress`,
+  wrapperDiv: `${PREFIX}-wrapperDiv`,
+  iconWrapper: `${PREFIX}-iconWrapper`,
+  title: `${PREFIX}-title`
+};
+
+const Root = styled('div')({
+  [`& .${classes.progress}`]: {
     color: infoColor,
     width: "6rem !important",
     height: "6rem !important",
   },
-  wrapperDiv: {
+  [`& .${classes.wrapperDiv}`]: {
     margin: "100px auto",
     padding: "0px",
     maxWidth: "360px",
@@ -22,19 +30,19 @@ const useStyles = makeStyles({
     zIndex: "9999",
     top: "0",
   },
-  iconWrapper: {
+  [`& .${classes.iconWrapper}`]: {
     display: "block",
   },
-  title: {
+  [`& .${classes.title}`]: {
     ...title,
     color: "#FFFFFF",
   },
 });
 
 export default function PageChange(props) {
-  const classes = useStyles();
+
   return (
-    <div>
+    <Root>
       <div className={classes.wrapperDiv}>
         <div className={classes.iconWrapper}>
           <CircularProgress className={classes.progress} />
@@ -43,6 +51,6 @@ export default function PageChange(props) {
           Loading page contents for: {props.path}
         </h4>
       </div>
-    </div>
+    </Root>
   );
 }
