@@ -1,10 +1,10 @@
 import React from "react";
 // react component for creating beautiful carousel
 import Carousel from "react-slick";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
-import LocationOn from "@material-ui/icons/LocationOn";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
+// @mui/icons-material
+import LocationOn from "@mui/icons-material/LocationOn";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -12,10 +12,9 @@ import Card from "components/Card/Card.js";
 
 import styles from "styles/jss/nextjs-material-kit/pages/componentsSections/carouselStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function SectionCarousel() {
-  const classes = useStyles();
   const settings = {
     dots: true,
     infinite: true,
@@ -25,10 +24,10 @@ export default function SectionCarousel() {
     autoplay: false,
   };
   return (
-    <div className={classes.section}>
-      <div className={classes.container}>
+    <div className={theme.section}>
+      <div className={theme.container}>
         <GridContainer>
-          <GridItem xs={12} sm={12} md={8} className={classes.marginAuto}>
+          <GridItem xs={12} sm={12} md={8} className={theme.marginAuto}>
             <Card carousel>
               <Carousel {...settings}>
                 <div>

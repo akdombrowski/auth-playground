@@ -1,22 +1,22 @@
 import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import Snack from "@material-ui/core/SnackbarContent";
-import IconButton from "@material-ui/core/IconButton";
-import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
-import Close from "@material-ui/icons/Close";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
+import Snack from "@mui/material/SnackbarContent";
+import IconButton from "@mui/material/IconButton";
+import Icon from "@mui/material/Icon";
+// @mui/icons-material
+import Close from "@mui/icons-material/Close";
 // core components
 
 import styles from "styles/jss/nextjs-material-kit/components/snackbarContentStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function SnackbarContent(props) {
   const { message, color, close, icon } = props;
-  const classes = useStyles();
+  
   var action = [];
   const closeAlert = () => {
     setAlert(null);
@@ -24,23 +24,23 @@ export default function SnackbarContent(props) {
   if (close !== undefined) {
     action = [
       <IconButton
-        className={classes.iconButton}
+        className={theme.conButton}
         key="close"
         aria-label="Close"
         color="inherit"
         onClick={closeAlert}
       >
-        <Close className={classes.close} />
+        <Close className={theme.lose} />
       </IconButton>,
     ];
   }
   let snackIcon = null;
   switch (typeof icon) {
     case "object":
-      snackIcon = <props.icon className={classes.icon} />;
+      snackIcon = <props.icon className={theme.con} />;
       break;
     case "string":
-      snackIcon = <Icon className={classes.icon}>{props.icon}</Icon>;
+      snackIcon = <Icon className={theme.con}>{props.icon}</Icon>;
       break;
     default:
       snackIcon = null;
@@ -56,8 +56,8 @@ export default function SnackbarContent(props) {
         </div>
       }
       classes={{
-        root: classes.root + " " + classes[color],
-        message: classes.message + " " + classes.container,
+        root: theme.oot + " " + theme[color],
+        message: theme.essage + " " + theme.ontainer,
       }}
     />
   );

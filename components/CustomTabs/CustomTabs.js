@@ -5,10 +5,10 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 
 // material-ui components
-import { makeStyles } from "@material-ui/core/styles";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Icon from "@material-ui/core/Icon";
+import { createTheme } from "@mui/material/styles";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Icon from "@mui/material/Icon";
 // core components
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
@@ -16,7 +16,7 @@ import CardHeader from "components/Card/CardHeader.js";
 
 import styles from "styles/jss/nextjs-material-kit/components/customTabsStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function CustomTabs(props) {
   const [value, setValue] = React.useState(0);
@@ -24,11 +24,10 @@ export default function CustomTabs(props) {
   const handleChange = (event, value) => {
     setValue(value);
   };
-  const classes = useStyles();
   const { headerColor, plainTabs, tabs, title, rtlActive } = props;
   const cardTitle = classNames({
-    [classes.cardTitle]: true,
-    [classes.cardTitleRTL]: rtlActive,
+    [theme.cardTitle]: true,
+    [theme.cardTitleRTL]: rtlActive,
   });
   return (
     <Card plain={plainTabs}>
@@ -38,8 +37,8 @@ export default function CustomTabs(props) {
           value={value}
           onChange={handleChange}
           classes={{
-            root: classes.tabsRoot,
-            indicator: classes.displayNone,
+            root: theme.tabsRoot,
+            indicator: theme.displayNone,
           }}
         >
           {tabs.map((prop, key) => {
@@ -57,10 +56,10 @@ export default function CustomTabs(props) {
             return (
               <Tab
                 classes={{
-                  root: classes.tabRootButton,
-                  label: classes.tabLabel,
-                  selected: classes.tabSelected,
-                  wrapper: classes.tabWrapper,
+                  root: theme.tabRootButton,
+                  label: theme.tabLabel,
+                  selected: theme.tabSelected,
+                  wrapper: theme.tabWrapper,
                 }}
                 key={key}
                 label={prop.tabName}

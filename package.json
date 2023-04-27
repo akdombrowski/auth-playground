@@ -33,8 +33,11 @@
   },
   "homepage": "https://demos.creative-tim.com/nextjs-material-kit",
   "dependencies": {
-    "@material-ui/core": "4.11.4",
-    "@material-ui/icons": "4.11.3",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.2",
     "classnames": "2.3.2",
     "moment": "2.29.4",
     "next": "13.3.1",
@@ -50,7 +53,12 @@
     "react-datetime": "3.2.0",
     "react-dom": "18.2.0",
     "react-slick": "0.29.0",
-    "styled-components": "5.3.10",
     "webpack": "5.80.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.1",
+    "@types/react": "^18.2.0",
+    "sass": "^1.62.1",
+    "typescript": "^5.0.4"
   }
 }

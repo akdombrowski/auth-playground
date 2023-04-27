@@ -1,11 +1,11 @@
 import React from "react";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
-import Email from "@material-ui/icons/Email";
-import People from "@material-ui/icons/People";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
+import InputAdornment from "@mui/material/InputAdornment";
+import Icon from "@mui/material/Icon";
+// @mui/icons-material
+import Email from "@mui/icons-material/Email";
+import People from "@mui/icons-material/People";
 // core components
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
@@ -21,14 +21,14 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 
 import styles from "styles/jss/nextjs-material-kit/pages/loginPage.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function LoginPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function () {
     setCardAnimation("");
   }, 700);
-  const classes = useStyles();
+  
   const { ...rest } = props;
   return (
     <div>
@@ -40,21 +40,21 @@ export default function LoginPage(props) {
         {...rest}
       />
       <div
-        className={classes.pageHeader}
+        className={theme.ageHeader}
         style={{
           backgroundImage: "url('/img/bg7.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "top center",
         }}
       >
-        <div className={classes.container}>
+        <div className={theme.ontainer}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={6} md={4}>
-              <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
+              <Card className={theme[cardAnimaton]}>
+                <form className={theme.orm}>
+                  <CardHeader color="primary" className={theme.ardHeader}>
                     <h4>Login</h4>
-                    <div className={classes.socialLine}>
+                    <div className={theme.ocialLine}>
                       <Button
                         justIcon
                         href="#pablo"
@@ -84,7 +84,7 @@ export default function LoginPage(props) {
                       </Button>
                     </div>
                   </CardHeader>
-                  <p className={classes.divider}>Or Be Classical</p>
+                  <p className={theme.ivider}>Or Be Classical</p>
                   <CardBody>
                     <CustomInput
                       labelText="First Name..."
@@ -96,7 +96,7 @@ export default function LoginPage(props) {
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
-                            <People className={classes.inputIconsColor} />
+                            <People className={theme.nputIconsColor} />
                           </InputAdornment>
                         ),
                       }}
@@ -111,7 +111,7 @@ export default function LoginPage(props) {
                         type: "email",
                         endAdornment: (
                           <InputAdornment position="end">
-                            <Email className={classes.inputIconsColor} />
+                            <Email className={theme.nputIconsColor} />
                           </InputAdornment>
                         ),
                       }}
@@ -126,7 +126,7 @@ export default function LoginPage(props) {
                         type: "password",
                         endAdornment: (
                           <InputAdornment position="end">
-                            <Icon className={classes.inputIconsColor}>
+                            <Icon className={theme.nputIconsColor}>
                               lock_outline
                             </Icon>
                           </InputAdornment>
@@ -135,7 +135,7 @@ export default function LoginPage(props) {
                       }}
                     />
                   </CardBody>
-                  <CardFooter className={classes.cardFooter}>
+                  <CardFooter className={theme.ardFooter}>
                     <Button simple color="primary" size="lg">
                       Get started
                     </Button>

@@ -4,17 +4,15 @@ import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 
-// @material-ui/core components
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import Button from "@material-ui/core/Button";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
+import Button from "@mui/material/Button";
 
 // core components
 
 import buttonStyle from "styles/jss/nextjs-material-kit/components/buttonStyle.js";
 
-const makeComponentStyles = makeStyles(() => ({
-  ...buttonStyle,
-}));
+const theme = createTheme(buttonStyle);
 
 const RegularButton = React.forwardRef((props, ref) => {
   const {
@@ -32,23 +30,24 @@ const RegularButton = React.forwardRef((props, ref) => {
     ...rest
   } = props;
 
-  const classes = makeComponentStyles();
-
   const btnClasses = classNames({
-    [classes.button]: true,
-    [classes[size]]: size,
-    [classes[color]]: color,
-    [classes.round]: round,
-    [classes.fullWidth]: fullWidth,
-    [classes.disabled]: disabled,
-    [classes.simple]: simple,
-    [classes.block]: block,
-    [classes.link]: link,
-    [classes.justIcon]: justIcon,
+    [theme.button]: true,
+    [theme[size]]: size,
+    [theme[color]]: color,
+    [theme.round]: round,
+    [theme.fullWidth]: fullWidth,
+    [theme.disabled]: disabled,
+    [theme.simple]: simple,
+    [theme.block]: block,
+    [theme.link]: link,
+    [theme.justIcon]: justIcon,
     [className]: className,
   });
   return (
-    <Button {...rest} ref={ref} classes={{ root: btnClasses }}>
+    <Button
+      {...rest}
+      ref={ref}
+      classes={{ root: btnClasses }}>
       {children}
     </Button>
   );

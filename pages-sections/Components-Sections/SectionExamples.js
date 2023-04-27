@@ -1,9 +1,9 @@
 import React from "react";
 // react components for routing our app without refresh
 import Link from "next/link";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
+// @mui/icons-material
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -12,26 +12,26 @@ import Button from "components/CustomButtons/Button.js";
 
 import styles from "styles/jss/nextjs-material-kit/pages/componentsSections/exampleStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function SectionExamples() {
-  const classes = useStyles();
+  
   return (
-    <div className={classes.section}>
-      <div className={classes.container}>
+    <div className={theme.ection}>
+      <div className={theme.ontainer}>
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={6}>
             <Link href="/landing">
-              <a className={classes.link}>
+              <a className={theme.ink}>
                 <img
                   src="/img/landing.jpg"
                   alt="..."
                   className={
-                    classes.imgRaised +
+                    theme.mgRaised +
                     " " +
-                    classes.imgRounded +
+                    theme.mgRounded +
                     " " +
-                    classes.imgFluid
+                    theme.mgFluid
                   }
                 />
                 <Button color="primary" size="lg" simple>
@@ -42,16 +42,16 @@ export default function SectionExamples() {
           </GridItem>
           <GridItem xs={12} sm={12} md={6}>
             <Link href="/profile">
-              <a className={classes.link}>
+              <a className={theme.ink}>
                 <img
                   src="/img/profile.jpg"
                   alt="..."
                   className={
-                    classes.imgRaised +
+                    theme.mgRaised +
                     " " +
-                    classes.imgRounded +
+                    theme.mgRounded +
                     " " +
-                    classes.imgFluid
+                    theme.mgFluid
                   }
                 />
                 <Button color="primary" size="lg" simple>

@@ -4,27 +4,27 @@ import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
+import Button from "@mui/material/Button";
 
 import styles from "styles/jss/nextjs-material-kit/components/paginationStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function Pagination(props) {
-  const classes = useStyles();
+  
   const { pages, color } = props;
   return (
-    <ul className={classes.pagination}>
+    <ul className={theme.agination}>
       {pages.map((prop, key) => {
         const paginationLink = classNames({
-          [classes.paginationLink]: true,
-          [classes[color]]: prop.active,
-          [classes.disabled]: prop.disabled,
+          [theme.aginationLink]: true,
+          [theme[color]]: prop.active,
+          [theme.isabled]: prop.disabled,
         });
         return (
-          <li className={classes.paginationItem} key={key}>
+          <li className={theme.aginationItem} key={key}>
             {prop.onClick !== undefined ? (
               <Button onClick={prop.onClick} className={paginationLink}>
                 {prop.text}

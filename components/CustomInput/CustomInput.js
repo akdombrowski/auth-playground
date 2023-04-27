@@ -3,18 +3,17 @@ import React from "react";
 import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Input from "@material-ui/core/Input";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Input from "@mui/material/Input";
 
 import styles from "styles/jss/nextjs-material-kit/components/customInputStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function CustomInput(props) {
-  const classes = useStyles();
   const {
     formControlProps,
     labelText,
@@ -28,39 +27,40 @@ export default function CustomInput(props) {
   } = props;
 
   const labelClasses = classNames({
-    [" " + classes.labelRootError]: error,
-    [" " + classes.labelRootSuccess]: success && !error,
+    [" " + theme.labelRootError]: error,
+    [" " + theme.labelRootSuccess]: success && !error,
   });
   const underlineClasses = classNames({
-    [classes.underlineError]: error,
-    [classes.underlineSuccess]: success && !error,
-    [classes.underline]: true,
-    [classes.whiteUnderline]: white,
+    [theme.underlineError]: error,
+    [theme.underlineSuccess]: success && !error,
+    [theme.underline]: true,
+    [theme.whiteUnderline]: white,
   });
   const marginTop = classNames({
     [inputRootCustomClasses]: inputRootCustomClasses !== undefined,
   });
   const inputClasses = classNames({
-    [classes.input]: true,
-    [classes.whiteInput]: white,
+    [theme.input]: true,
+    [theme.whiteInput]: white,
   });
   var formControlClasses;
   if (formControlProps !== undefined) {
     formControlClasses = classNames(
       formControlProps.className,
-      classes.formControl
+      theme.formControl
     );
   } else {
-    formControlClasses = classes.formControl;
+    formControlClasses = theme.formControl;
   }
   return (
-    <FormControl {...formControlProps} className={formControlClasses}>
+    <FormControl
+      {...formControlProps}
+      className={formControlClasses}>
       {labelText !== undefined ? (
         <InputLabel
-          className={classes.labelRoot + " " + labelClasses}
+          className={theme.labelRoot + " " + labelClasses}
           htmlFor={id}
-          {...labelProps}
-        >
+          {...labelProps}>
           {labelText}
         </InputLabel>
       ) : null}
@@ -68,7 +68,7 @@ export default function CustomInput(props) {
         classes={{
           input: inputClasses,
           root: marginTop,
-          disabled: classes.disabled,
+          disabled: theme.disabled,
           underline: underlineClasses,
         }}
         id={id}

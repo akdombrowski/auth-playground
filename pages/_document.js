@@ -1,6 +1,5 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { ServerStyleSheets } from "@material-ui/styles";
 
 class MyDocument extends Document {
   render() {
@@ -8,8 +7,14 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
-          <meta name="theme-color" content="#000000" />
-          <link rel="shortcut icon" href="/img/favicon.png" />
+          <meta
+            name="theme.color"
+            content="#000000"
+          />
+          <link
+            rel="shortcut icon"
+            href="/img/favicon.png"
+          />
           <link
             rel="apple-touch-icon"
             sizes="76x76"
@@ -60,13 +65,9 @@ MyDocument.getInitialProps = async (ctx) => {
   // 4. page.render
 
   // Render app and page and get the context of the page with collected side effects.
-  const sheets = new ServerStyleSheets();
   const originalRenderPage = ctx.renderPage;
 
-  ctx.renderPage = () =>
-    originalRenderPage({
-      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
-    });
+  ctx.renderPage = () => originalRenderPage();
 
   const initialProps = await Document.getInitialProps(ctx);
 
@@ -76,7 +77,6 @@ MyDocument.getInitialProps = async (ctx) => {
     styles: [
       <React.Fragment key="styles">
         {initialProps.styles}
-        {sheets.getStyleElement()}
       </React.Fragment>,
     ],
   };

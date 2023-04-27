@@ -1,11 +1,11 @@
 import React from "react";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
 
-// @material-ui/icons
-import Dashboard from "@material-ui/icons/Dashboard";
-import Schedule from "@material-ui/icons/Schedule";
-import List from "@material-ui/icons/List";
+// @mui/icons-material
+import Dashboard from "@mui/icons-material/Dashboard";
+import Schedule from "@mui/icons-material/Schedule";
+import List from "@mui/icons-material/List";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -14,18 +14,18 @@ import NavPills from "components/NavPills/NavPills.js";
 
 import styles from "styles/jss/nextjs-material-kit/pages/componentsSections/pillsStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function SectionPills() {
-  const classes = useStyles();
+  
   return (
-    <div className={classes.section}>
-      <div className={classes.container}>
+    <div className={theme.ection}>
+      <div className={theme.ontainer}>
         <div id="navigation-pills">
-          <div className={classes.title}>
+          <div className={theme.itle}>
             <h3>Navigation Pills</h3>
           </div>
-          <div className={classes.title}>
+          <div className={theme.itle}>
             <h3>
               <small>With Icons</small>
             </h3>

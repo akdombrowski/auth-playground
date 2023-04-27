@@ -3,33 +3,33 @@ import React from "react";
 import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
 
 import styles from "styles/jss/nextjs-material-kit/components/infoStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function InfoArea(props) {
-  const classes = useStyles();
+  
   const { title, description, iconColor, vertical } = props;
   const iconWrapper = classNames({
-    [classes.iconWrapper]: true,
-    [classes[iconColor]]: true,
-    [classes.iconWrapperVertical]: vertical,
+    [theme.conWrapper]: true,
+    [theme[iconColor]]: true,
+    [theme.conWrapperVertical]: vertical,
   });
   const iconClasses = classNames({
-    [classes.icon]: true,
-    [classes.iconVertical]: vertical,
+    [theme.con]: true,
+    [theme.conVertical]: vertical,
   });
   return (
-    <div className={classes.infoArea}>
+    <div className={theme.nfoArea}>
       <div className={iconWrapper}>
         <props.icon className={iconClasses} />
       </div>
-      <div className={classes.descriptionWrapper}>
-        <h4 className={classes.title}>{title}</h4>
-        <p className={classes.description}>{description}</p>
+      <div className={theme.escriptionWrapper}>
+        <h4 className={theme.itle}>{title}</h4>
+        <p className={theme.escription}>{description}</p>
       </div>
     </div>
   );

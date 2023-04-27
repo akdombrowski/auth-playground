@@ -3,13 +3,13 @@ import React from "react";
 import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
 
 // core components
 import styles from "styles/jss/nextjs-material-kit/components/parallaxStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function Parallax(props) {
   let windowScrollTop;
@@ -42,12 +42,11 @@ export default function Parallax(props) {
     small,
     responsive,
   } = props;
-  const classes = useStyles();
   const parallaxClasses = classNames({
-    [classes.parallax]: true,
-    [classes.filter]: filter,
-    [classes.small]: small,
-    [classes.parallaxResponsive]: responsive,
+    [theme.parallax]: true,
+    [theme.filter]: filter,
+    [theme.small]: small,
+    [theme.parallaxResponsive]: responsive,
     [className]: className !== undefined,
   });
   return (

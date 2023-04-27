@@ -4,23 +4,23 @@ import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Paper from "@material-ui/core/Paper";
-import Grow from "@material-ui/core/Grow";
-import Divider from "@material-ui/core/Divider";
-import Icon from "@material-ui/core/Icon";
-import Popper from "@material-ui/core/Popper";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import Paper from "@mui/material/Paper";
+import Grow from "@mui/material/Grow";
+import Divider from "@mui/material/Divider";
+import Icon from "@mui/material/Icon";
+import Popper from "@mui/material/Popper";
 
 // core components
 import Button from "components/CustomButtons/Button.js";
 
 import styles from "styles/jss/nextjs-material-kit/components/customDropdownStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function CustomDropdown(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -43,7 +43,7 @@ export default function CustomDropdown(props) {
     }
     setAnchorEl(null);
   };
-  const classes = useStyles();
+  
   const {
     buttonText,
     buttonIcon,
@@ -59,23 +59,23 @@ export default function CustomDropdown(props) {
     navDropdown,
   } = props;
   const caretClasses = classNames({
-    [classes.caret]: true,
-    [classes.caretActive]: Boolean(anchorEl),
-    [classes.caretRTL]: rtlActive,
+    [theme.caret]: true,
+    [theme.caretActive]: Boolean(anchorEl),
+    [theme.caretRTL]: rtlActive,
   });
   const dropdownItem = classNames({
-    [classes.dropdownItem]: true,
-    [classes[hoverColor + "Hover"]]: true,
-    [classes.noLiPadding]: noLiPadding,
-    [classes.dropdownItemRTL]: rtlActive,
+    [theme.dropdownItem]: true,
+    [theme[hoverColor + "Hover"]]: true,
+    [theme.noLiPadding]: noLiPadding,
+    [theme.dropdownItemRTL]: rtlActive,
   });
   let icon = null;
   switch (typeof buttonIcon) {
     case "object":
-      icon = <props.buttonIcon className={classes.buttonIcon} />;
+      icon = <props.buttonIcon className={theme.buttonIcon} />;
       break;
     case "string":
-      icon = <Icon className={classes.buttonIcon}>{props.buttonIcon}</Icon>;
+      icon = <Icon className={theme.buttonIcon}>{props.buttonIcon}</Icon>;
       break;
     default:
       icon = null;
@@ -111,9 +111,9 @@ export default function CustomDropdown(props) {
             : "bottom"
         }
         className={classNames({
-          [classes.popperClose]: !anchorEl,
-          [classes.popperResponsive]: true,
-          [classes.pooperNav]: Boolean(anchorEl) && navDropdown,
+          [theme.popperClose]: !anchorEl,
+          [theme.popperResponsive]: true,
+          [theme.pooperNav]: Boolean(anchorEl) && navDropdown,
         })}
       >
         {() => (
@@ -126,13 +126,13 @@ export default function CustomDropdown(props) {
                 : { transformOrigin: "0 0 0" }
             }
           >
-            <Paper className={classes.dropdown}>
+            <Paper className={theme.dropdown}>
               <ClickAwayListener onClickAway={handleCloseAway}>
-                <MenuList role="menu" className={classes.menuList}>
+                <MenuList role="menu" className={theme.menuList}>
                   {dropdownHeader !== undefined ? (
                     <MenuItem
                       onClick={() => handleClose(dropdownHeader)}
-                      className={classes.dropdownHeader}
+                      className={theme.dropdownHeader}
                     >
                       {dropdownHeader}
                     </MenuItem>
@@ -143,7 +143,7 @@ export default function CustomDropdown(props) {
                         <Divider
                           key={key}
                           onClick={() => handleClose("divider")}
-                          className={classes.dropdownDividerItem}
+                          className={theme.dropdownDividerItem}
                         />
                       );
                     }

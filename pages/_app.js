@@ -20,6 +20,11 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
+import { SessionProvider } from "next-auth/react";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
 import PageChange from "components/PageChange/PageChange.js";
 
@@ -73,7 +78,7 @@ export default class MyApp extends App {
     return { pageProps };
   }
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, session } = this.props;
 
     return (
       <React.Fragment>
@@ -84,7 +89,10 @@ export default class MyApp extends App {
           />
           <title>NextJS Material Kit by Creative Tim</title>
         </Head>
-        <Component {...pageProps} />
+
+        <SessionProvider session={session}>
+          <Component {...pageProps} />
+        </SessionProvider>
       </React.Fragment>
     );
   }

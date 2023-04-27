@@ -1,10 +1,10 @@
 import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+// @mui/material components
+import { createtheme } from "@mui/material/styles";
 
-// @material-ui/icons
+// @mui/icons-material
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -16,150 +16,150 @@ import CardFooter from "components/Card/CardFooter.js";
 
 import styles from "styles/jss/nextjs-material-kit/pages/landingPageSections/teamStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function TeamSection() {
-  const classes = useStyles();
+  
   const imageClasses = classNames(
-    classes.imgRaised,
-    classes.imgRoundedCircle,
-    classes.imgFluid
+    theme.imgRaised,
+    theme.imgRoundedCircle,
+    theme.imgFluid
   );
   return (
-    <div className={classes.section}>
-      <h2 className={classes.title}>Here is our team</h2>
+    <div className={theme.section}>
+      <h2 className={theme.title}>Here is our team</h2>
       <div>
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
             <Card plain>
-              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+              <GridItem xs={12} sm={12} md={6} className={theme.itemGrid}>
                 <img
                   src="/img/faces/avatar.jpg"
                   alt="..."
                   className={imageClasses}
                 />
               </GridItem>
-              <h4 className={classes.cardTitle}>
+              <h4 className={theme.cardTitle}>
                 Gigi Hadid
                 <br />
-                <small className={classes.smallTitle}>Model</small>
+                <small className={theme.smallTitle}>Model</small>
               </h4>
               <CardBody>
-                <p className={classes.description}>
+                <p className={theme.description}>
                   You can write here details about one of your team members. You
                   can give more details about what they do. Feel free to add
                   some <a href="#pablo">links</a> for people to be able to
                   follow them outside the site.
                 </p>
               </CardBody>
-              <CardFooter className={classes.justifyCenter}>
+              <CardFooter className={theme.justifyCenter}>
                 <Button
                   justIcon
                   color="transparent"
-                  className={classes.margin5}
+                  className={theme.margin5}
                 >
-                  <i className={classes.socials + " fab fa-twitter"} />
+                  <i className={theme.socials + " fab fa-twitter"} />
                 </Button>
                 <Button
                   justIcon
                   color="transparent"
-                  className={classes.margin5}
+                  className={theme.margin5}
                 >
-                  <i className={classes.socials + " fab fa-instagram"} />
+                  <i className={theme.socials + " fab fa-instagram"} />
                 </Button>
                 <Button
                   justIcon
                   color="transparent"
-                  className={classes.margin5}
+                  className={theme.margin5}
                 >
-                  <i className={classes.socials + " fab fa-facebook"} />
+                  <i className={theme.socials + " fab fa-facebook"} />
                 </Button>
               </CardFooter>
             </Card>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <Card plain>
-              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+              <GridItem xs={12} sm={12} md={6} className={theme.itemGrid}>
                 <img
                   src="/img/faces/christian.jpg"
                   alt="..."
                   className={imageClasses}
                 />
               </GridItem>
-              <h4 className={classes.cardTitle}>
+              <h4 className={theme.cardTitle}>
                 Christian Louboutin
                 <br />
-                <small className={classes.smallTitle}>Designer</small>
+                <small className={theme.smallTitle}>Designer</small>
               </h4>
               <CardBody>
-                <p className={classes.description}>
+                <p className={theme.description}>
                   You can write here details about one of your team members. You
                   can give more details about what they do. Feel free to add
                   some <a href="#pablo">links</a> for people to be able to
                   follow them outside the site.
                 </p>
               </CardBody>
-              <CardFooter className={classes.justifyCenter}>
+              <CardFooter className={theme.justifyCenter}>
                 <Button
                   justIcon
                   color="transparent"
-                  className={classes.margin5}
+                  className={theme.margin5}
                 >
-                  <i className={classes.socials + " fab fa-twitter"} />
+                  <i className={theme.socials + " fab fa-twitter"} />
                 </Button>
                 <Button
                   justIcon
                   color="transparent"
-                  className={classes.margin5}
+                  className={theme.margin5}
                 >
-                  <i className={classes.socials + " fab fa-linkedin"} />
+                  <i className={theme.socials + " fab fa-linkedin"} />
                 </Button>
               </CardFooter>
             </Card>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <Card plain>
-              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+              <GridItem xs={12} sm={12} md={6} className={theme.itemGrid}>
                 <img
                   src="/img/faces/kendall.jpg"
                   alt="..."
                   className={imageClasses}
                 />
               </GridItem>
-              <h4 className={classes.cardTitle}>
+              <h4 className={theme.cardTitle}>
                 Kendall Jenner
                 <br />
-                <small className={classes.smallTitle}>Model</small>
+                <small className={theme.smallTitle}>Model</small>
               </h4>
               <CardBody>
-                <p className={classes.description}>
+                <p className={theme.description}>
                   You can write here details about one of your team members. You
                   can give more details about what they do. Feel free to add
                   some <a href="#pablo">links</a> for people to be able to
                   follow them outside the site.
                 </p>
               </CardBody>
-              <CardFooter className={classes.justifyCenter}>
+              <CardFooter className={theme.justifyCenter}>
                 <Button
                   justIcon
                   color="transparent"
-                  className={classes.margin5}
+                  className={theme.margin5}
                 >
-                  <i className={classes.socials + " fab fa-twitter"} />
+                  <i className={theme.socials + " fab fa-twitter"} />
                 </Button>
                 <Button
                   justIcon
                   color="transparent"
-                  className={classes.margin5}
+                  className={theme.margin5}
                 >
-                  <i className={classes.socials + " fab fa-instagram"} />
+                  <i className={theme.socials + " fab fa-instagram"} />
                 </Button>
                 <Button
                   justIcon
                   color="transparent"
-                  className={classes.margin5}
+                  className={theme.margin5}
                 >
-                  <i className={classes.socials + " fab fa-facebook"} />
+                  <i className={theme.socials + " fab fa-facebook"} />
                 </Button>
               </CardFooter>
             </Card>

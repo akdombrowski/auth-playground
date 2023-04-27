@@ -1,21 +1,21 @@
 import React from "react";
 // react plugin for creating date-time-picker
 import Datetime from "react-datetime";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import Slide from "@material-ui/core/Slide";
-import IconButton from "@material-ui/core/IconButton";
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogActions from "@material-ui/core/DialogActions";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormControl from "@material-ui/core/FormControl";
-import Tooltip from "@material-ui/core/Tooltip";
-import Popover from "@material-ui/core/Popover";
-// @material-ui/icons
-import LibraryBooks from "@material-ui/icons/LibraryBooks";
-import Close from "@material-ui/icons/Close";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
+import Slide from "@mui/material/Slide";
+import IconButton from "@mui/material/IconButton";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
+import Tooltip from "@mui/material/Tooltip";
+import Popover from "@mui/material/Popover";
+// @mui/icons-material
+import LibraryBooks from "@mui/icons-material/LibraryBooks";
+import Close from "@mui/icons-material/Close";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -23,7 +23,7 @@ import Button from "components/CustomButtons/Button.js";
 
 import styles from "styles/jss/nextjs-material-kit/pages/componentsSections/javascriptStyles.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -32,21 +32,20 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 Transition.displayName = "Transition";
 
 export default function SectionJavascript() {
-  const classes = useStyles();
   const [anchorElLeft, setAnchorElLeft] = React.useState(null);
   const [anchorElTop, setAnchorElTop] = React.useState(null);
   const [anchorElBottom, setAnchorElBottom] = React.useState(null);
   const [anchorElRight, setAnchorElRight] = React.useState(null);
   const [classicModal, setClassicModal] = React.useState(false);
   return (
-    <div className={classes.section}>
-      <div className={classes.container}>
-        <div className={classes.title}>
+    <div className={theme.section}>
+      <div className={theme.container}>
+        <div className={theme.title}>
           <h2>Javascript components</h2>
         </div>
         <GridContainer>
           <GridItem xs={12} sm={12} md={6}>
-            <div className={classes.title}>
+            <div className={theme.title}>
               <h3>Modal</h3>
             </div>
             <GridContainer>
@@ -56,13 +55,13 @@ export default function SectionJavascript() {
                   block
                   onClick={() => setClassicModal(true)}
                 >
-                  <LibraryBooks className={classes.icon} />
+                  <LibraryBooks className={theme.icon} />
                   Classic
                 </Button>
                 <Dialog
                   classes={{
-                    root: classes.center,
-                    paper: classes.modal,
+                    root: theme.center,
+                    paper: theme.modal,
                   }}
                   open={classicModal}
                   TransitionComponent={Transition}
@@ -74,22 +73,22 @@ export default function SectionJavascript() {
                   <DialogTitle
                     id="classic-modal-slide-title"
                     disableTypography
-                    className={classes.modalHeader}
+                    className={theme.modalHeader}
                   >
                     <IconButton
-                      className={classes.modalCloseButton}
+                      className={theme.modalCloseButton}
                       key="close"
                       aria-label="Close"
                       color="inherit"
                       onClick={() => setClassicModal(false)}
                     >
-                      <Close className={classes.modalClose} />
+                      <Close className={theme.modalClose} />
                     </IconButton>
-                    <h4 className={classes.modalTitle}>Modal title</h4>
+                    <h4 className={theme.modalTitle}>Modal title</h4>
                   </DialogTitle>
                   <DialogContent
                     id="classic-modal-slide-description"
-                    className={classes.modalBody}
+                    className={theme.modalBody}
                   >
                     <p>
                       Far far away, behind the word mountains, far from the
@@ -105,7 +104,7 @@ export default function SectionJavascript() {
                       Lorem Ipsum decided to leave for the far World of Grammar.
                     </p>
                   </DialogContent>
-                  <DialogActions className={classes.modalFooter}>
+                  <DialogActions className={theme.modalFooter}>
                     <Button color="transparent" simple>
                       Nice Button
                     </Button>
@@ -121,12 +120,12 @@ export default function SectionJavascript() {
               </GridItem>
             </GridContainer>
             <GridItem xs={12} sm={12} md={12}>
-              <div className={classes.title}>
+              <div className={theme.title}>
                 <h3>Datetime Picker</h3>
               </div>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={6}>
-                  <InputLabel className={classes.label}>
+                  <InputLabel className={theme.label}>
                     Datetime Picker
                   </InputLabel>
                   <br />
@@ -140,7 +139,7 @@ export default function SectionJavascript() {
             </GridItem>
           </GridItem>
           <GridItem xs={12} sm={12} md={6}>
-            <div className={classes.title}>
+            <div className={theme.title}>
               <h3>Popovers</h3>
             </div>
             <Button onClick={(event) => setAnchorElLeft(event.currentTarget)}>
@@ -148,7 +147,7 @@ export default function SectionJavascript() {
             </Button>
             <Popover
               classes={{
-                paper: classes.popover,
+                paper: theme.popover,
               }}
               open={Boolean(anchorElLeft)}
               anchorEl={anchorElLeft}
@@ -162,8 +161,8 @@ export default function SectionJavascript() {
                 horizontal: "right",
               }}
             >
-              <h3 className={classes.popoverHeader}>Popover on left</h3>
-              <div className={classes.popoverBody}>
+              <h3 className={theme.popoverHeader}>Popover on left</h3>
+              <div className={theme.popoverBody}>
                 Here will be some very useful information about his popover.
                 Here will be some very useful information about his popover.
               </div>
@@ -173,7 +172,7 @@ export default function SectionJavascript() {
             </Button>
             <Popover
               classes={{
-                paper: classes.popover,
+                paper: theme.popover,
               }}
               open={Boolean(anchorElTop)}
               anchorEl={anchorElTop}
@@ -187,8 +186,8 @@ export default function SectionJavascript() {
                 horizontal: "center",
               }}
             >
-              <h3 className={classes.popoverHeader}>Popover on top</h3>
-              <div className={classes.popoverBody}>
+              <h3 className={theme.popoverHeader}>Popover on top</h3>
+              <div className={theme.popoverBody}>
                 Here will be some very useful information about his popover.
               </div>
             </Popover>
@@ -197,7 +196,7 @@ export default function SectionJavascript() {
             </Button>
             <Popover
               classes={{
-                paper: classes.popover,
+                paper: theme.popover,
               }}
               open={Boolean(anchorElBottom)}
               anchorEl={anchorElBottom}
@@ -211,8 +210,8 @@ export default function SectionJavascript() {
                 horizontal: "center",
               }}
             >
-              <h3 className={classes.popoverHeader}>Popover on bottom</h3>
-              <div className={classes.popoverBody}>
+              <h3 className={theme.popoverHeader}>Popover on bottom</h3>
+              <div className={theme.popoverBody}>
                 Here will be some very useful information about his popover.
               </div>
             </Popover>
@@ -221,7 +220,7 @@ export default function SectionJavascript() {
             </Button>
             <Popover
               classes={{
-                paper: classes.popover,
+                paper: theme.popover,
               }}
               open={Boolean(anchorElRight)}
               anchorEl={anchorElRight}
@@ -235,21 +234,21 @@ export default function SectionJavascript() {
                 horizontal: "left",
               }}
             >
-              <h3 className={classes.popoverHeader}>Popover on right</h3>
-              <div className={classes.popoverBody}>
+              <h3 className={theme.popoverHeader}>Popover on right</h3>
+              <div className={theme.popoverBody}>
                 Here will be some very useful information about his popover.
               </div>
             </Popover>
             <br />
             <br />
-            <div className={classes.title}>
+            <div className={theme.title}>
               <h3>Tooltips</h3>
             </div>
             <Tooltip
               id="tooltip-left"
               title="Tooltip on left"
               placement="left"
-              classes={{ tooltip: classes.tooltip }}
+              classes={{ tooltip: theme.tooltip }}
             >
               <Button>On left</Button>
             </Tooltip>
@@ -257,7 +256,7 @@ export default function SectionJavascript() {
               id="tooltip-top"
               title="Tooltip on top"
               placement="top"
-              classes={{ tooltip: classes.tooltip }}
+              classes={{ tooltip: theme.tooltip }}
             >
               <Button>On top</Button>
             </Tooltip>
@@ -265,7 +264,7 @@ export default function SectionJavascript() {
               id="tooltip-bottom"
               title="Tooltip on bottom"
               placement="bottom"
-              classes={{ tooltip: classes.tooltip }}
+              classes={{ tooltip: theme.tooltip }}
             >
               <Button>On bottom</Button>
             </Tooltip>
@@ -273,13 +272,13 @@ export default function SectionJavascript() {
               id="tooltip-right"
               title="Tooltip on right"
               placement="right"
-              classes={{ tooltip: classes.tooltip }}
+              classes={{ tooltip: theme.tooltip }}
             >
               <Button>On right</Button>
             </Tooltip>
           </GridItem>
         </GridContainer>
-        <div className={classes.title}>
+        <div className={theme.title}>
           <h3>Carousel</h3>
         </div>
       </div>

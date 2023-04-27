@@ -1,12 +1,12 @@
 import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
-import Camera from "@material-ui/icons/Camera";
-import Palette from "@material-ui/icons/Palette";
-import Favorite from "@material-ui/icons/Favorite";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
+// @mui/icons-material
+import Camera from "@mui/icons-material/Camera";
+import Palette from "@mui/icons-material/Palette";
+import Favorite from "@mui/icons-material/Favorite";
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
@@ -19,17 +19,16 @@ import Parallax from "components/Parallax/Parallax.js";
 
 import styles from "styles/jss/nextjs-material-kit/pages/profilePage.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function ProfilePage(props) {
-  const classes = useStyles();
   const { ...rest } = props;
   const imageClasses = classNames(
-    classes.imgRaised,
-    classes.imgRoundedCircle,
-    classes.imgFluid
+    theme.imgRaised,
+    theme.imgRoundedCircle,
+    theme.imgFluid
   );
-  const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+  const navImageClasses = classNames(theme.imgRounded, theme.imgGallery);
   return (
     <div>
       <Header
@@ -44,12 +43,12 @@ export default function ProfilePage(props) {
         {...rest}
       />
       <Parallax small filter image="/img/profile-bg.jpg" />
-      <div className={classNames(classes.main, classes.mainRaised)}>
+      <div className={classNames(theme.main, theme.mainRaised)}>
         <div>
-          <div className={classes.container}>
+          <div className={theme.container}>
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={6}>
-                <div className={classes.profile}>
+                <div className={theme.profile}>
                   <div>
                     <img
                       src="/img/faces/christian.jpg"
@@ -57,23 +56,23 @@ export default function ProfilePage(props) {
                       className={imageClasses}
                     />
                   </div>
-                  <div className={classes.name}>
-                    <h3 className={classes.title}>Christian Louboutin</h3>
+                  <div className={theme.name}>
+                    <h3 className={theme.title}>Christian Louboutin</h3>
                     <h6>DESIGNER</h6>
-                    <Button justIcon link className={classes.margin5}>
+                    <Button justIcon link className={theme.margin5}>
                       <i className={"fab fa-twitter"} />
                     </Button>
-                    <Button justIcon link className={classes.margin5}>
+                    <Button justIcon link className={theme.margin5}>
                       <i className={"fab fa-instagram"} />
                     </Button>
-                    <Button justIcon link className={classes.margin5}>
+                    <Button justIcon link className={theme.margin5}>
                       <i className={"fab fa-facebook"} />
                     </Button>
                   </div>
                 </div>
               </GridItem>
             </GridContainer>
-            <div className={classes.description}>
+            <div className={theme.description}>
               <p>
                 An artist of considerable range, Chet Faker — the name taken by
                 Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs
@@ -82,7 +81,7 @@ export default function ProfilePage(props) {
               </p>
             </div>
             <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
+              <GridItem xs={12} sm={12} md={8} className={theme.navWrapper}>
                 <NavPills
                   alignCenter
                   color="primary"

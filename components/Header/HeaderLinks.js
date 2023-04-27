@@ -2,17 +2,17 @@
 import React from "react";
 import Link from "next/link";
 
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import Tooltip from "@material-ui/core/Tooltip";
-import Icon from "@material-ui/core/Icon";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import Tooltip from "@mui/material/Tooltip";
+import Icon from "@mui/material/Icon";
 
-// @material-ui/icons
-import { Apps, CloudDownload } from "@material-ui/icons";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
+// @mui/icons-material
+import { Apps, CloudDownload } from "@mui/icons-material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
@@ -20,57 +20,56 @@ import Button from "components/CustomButtons/Button.js";
 
 import styles from "styles/jss/nextjs-material-kit/components/headerLinksStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function HeaderLinks(props) {
-  const classes = useStyles();
   return (
-    <List className={classes.list}>
-      <ListItem className={classes.listItem}>
+    <List className={theme.list}>
+      <ListItem className={theme.listItem}>
         <CustomDropdown
           noLiPadding
           navDropdown
           buttonText="Components"
           buttonProps={{
-            className: classes.navLink,
+            className: theme.navLink,
             color: "transparent",
           }}
           buttonIcon={Apps}
           dropdownList={[
             <Link href="/components">
-              <a className={classes.dropdownLink}>All components</a>
+              <a className={theme.dropdownLink}>All components</a>
             </Link>,
             <a
               href="https://creativetimofficial.github.io/nextjs-material-kit/#/documentation?ref=njsmk-navbar"
               target="_blank"
-              className={classes.dropdownLink}
+              className={theme.dropdownLink}
             >
               Documentation
             </a>,
           ]}
         />
       </ListItem>
-      <ListItem className={classes.listItem}>
+      <ListItem className={theme.listItem}>
         <Button
           href="https://www.creative-tim.com/product/nextjs-material-kit-pro?ref=njsmk-navbar"
           color="transparent"
           target="_blank"
-          className={classes.navLink}
+          className={theme.navLink}
         >
-          <Icon className={classes.icons}>unarchive</Icon> Upgrade to PRO
+          <Icon className={theme.icons}>unarchive</Icon> Upgrade to PRO
         </Button>
       </ListItem>
-      <ListItem className={classes.listItem}>
+      <ListItem className={theme.listItem}>
         <Button
           href="https://www.creative-tim.com/product/nextjs-material-kit?ref=njsmk-navbar"
           color="transparent"
           target="_blank"
-          className={classes.navLink}
+          className={theme.navLink}
         >
-          <CloudDownload className={classes.icons} /> Download
+          <CloudDownload className={theme.icons} /> Download
         </Button>
       </ListItem>
-      <ListItem className={classes.listItem}>
+      <ListItem className={theme.listItem}>
         {/*<Tooltip title="Delete">
           <IconButton aria-label="Delete">
             <DeleteIcon />
@@ -80,49 +79,49 @@ export default function HeaderLinks(props) {
           id="instagram-twitter"
           title="Follow us on twitter"
           placement={"top"}
-          classes={{ tooltip: classes.tooltip }}
+          classes={{ tooltip: theme.tooltip }}
         >
           <Button
             href="https://twitter.com/CreativeTim?ref=creativetim"
             target="_blank"
             color="transparent"
-            className={classes.navLink}
+            className={theme.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-twitter"} />
+            <i className={theme.socialIcons + " fab fa-twitter"} />
           </Button>
         </Tooltip>
       </ListItem>
-      <ListItem className={classes.listItem}>
+      <ListItem className={theme.listItem}>
         <Tooltip
           id="instagram-facebook"
           title="Follow us on facebook"
           placement={"top"}
-          classes={{ tooltip: classes.tooltip }}
+          classes={{ tooltip: theme.tooltip }}
         >
           <Button
             color="transparent"
             href="https://www.facebook.com/CreativeTim?ref=creativetim"
             target="_blank"
-            className={classes.navLink}
+            className={theme.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-facebook"} />
+            <i className={theme.socialIcons + " fab fa-facebook"} />
           </Button>
         </Tooltip>
       </ListItem>
-      <ListItem className={classes.listItem}>
+      <ListItem className={theme.listItem}>
         <Tooltip
           id="instagram-tooltip"
           title="Follow us on instagram"
           placement={"top"}
-          classes={{ tooltip: classes.tooltip }}
+          classes={{ tooltip: theme.tooltip }}
         >
           <Button
             color="transparent"
             href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
             target="_blank"
-            className={classes.navLink}
+            className={theme.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-instagram"} />
+            <i className={theme.socialIcons + " fab fa-instagram"} />
           </Button>
         </Tooltip>
       </ListItem>

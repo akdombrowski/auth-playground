@@ -5,63 +5,63 @@ import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // material-ui core components
-import { List, ListItem } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { List, ListItem } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
 
-// @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
+// @mui/icons-material
+import Favorite from "@mui/icons-material/Favorite";
 
 import styles from "styles/jss/nextjs-material-kit/components/footerStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function Footer(props) {
-  const classes = useStyles();
+  
   const { whiteFont } = props;
   const footerClasses = classNames({
-    [classes.footer]: true,
-    [classes.footerWhiteFont]: whiteFont,
+    [theme.footer]: true,
+    [theme.footerWhiteFont]: whiteFont,
   });
   const aClasses = classNames({
-    [classes.a]: true,
-    [classes.footerWhiteFont]: whiteFont,
+    [theme.color]: true,
+    [theme.footerWhiteFont]: whiteFont,
   });
   return (
     <footer className={footerClasses}>
-      <div className={classes.container}>
-        <div className={classes.left}>
-          <List className={classes.list}>
-            <ListItem className={classes.inlineBlock}>
+      <div className={theme.container}>
+        <div className={theme.left}>
+          <List className={theme.list}>
+            <ListItem className={theme.inlineBlock}>
               <a
                 href="https://www.creative-tim.com/?ref=njsmk-footer"
-                className={classes.block}
+                className={theme.block}
                 target="_blank"
               >
                 Creative Tim
               </a>
             </ListItem>
-            <ListItem className={classes.inlineBlock}>
+            <ListItem className={theme.inlineBlock}>
               <a
                 href="https://www.creative-tim.com/presentation?ref=njsmk-footer"
-                className={classes.block}
+                className={theme.block}
                 target="_blank"
               >
                 About us
               </a>
             </ListItem>
-            <ListItem className={classes.inlineBlock}>
+            <ListItem className={theme.inlineBlock}>
               <a
                 href="http://blog.creative-tim.com/?ref=njsmk-footer"
-                className={classes.block}
+                className={theme.block}
                 target="_blank"
               >
                 Blog
               </a>
             </ListItem>
-            <ListItem className={classes.inlineBlock}>
+            <ListItem className={theme.inlineBlock}>
               <a
                 href="https://www.creative-tim.com/license?ref=njsmk-footer"
-                className={classes.block}
+                className={theme.block}
                 target="_blank"
               >
                 Licenses
@@ -69,9 +69,9 @@ export default function Footer(props) {
             </ListItem>
           </List>
         </div>
-        <div className={classes.right}>
+        <div className={theme.right}>
           &copy; {1900 + new Date().getYear()} , made with{" "}
-          <Favorite className={classes.icon} /> by{" "}
+          <Favorite className={theme.icon} /> by{" "}
           <a
             href="https://www.creative-tim.com?ref=njsmk-footer"
             className={aClasses}

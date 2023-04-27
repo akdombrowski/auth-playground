@@ -4,10 +4,10 @@ import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -15,7 +15,7 @@ import GridItem from "components/Grid/GridItem.js";
 
 import styles from "styles/jss/nextjs-material-kit/components/navPillsStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function NavPills(props) {
   const [active, setActive] = React.useState(props.active);
@@ -25,19 +25,18 @@ export default function NavPills(props) {
   const handleChangeIndex = (index) => {
     setActive(index);
   };
-  const classes = useStyles();
   const { tabs, color, horizontal, alignCenter } = props;
   const flexContainerClasses = classNames({
-    [classes.flexContainer]: true,
-    [classes.horizontalDisplay]: horizontal !== undefined,
+    [theme.flexContainer]: true,
+    [theme.horizontalDisplay]: horizontal !== undefined,
   });
   const tabButtons = (
     <Tabs
       classes={{
-        root: classes.root,
-        fixed: classes.fixed,
+        root: theme.root,
+        fixed: theme.fixed,
         flexContainer: flexContainerClasses,
-        indicator: classes.displayNone,
+        indicator: theme.displayNone,
       }}
       value={active}
       onChange={handleChange}
@@ -46,12 +45,12 @@ export default function NavPills(props) {
       {tabs.map((prop, key) => {
         var icon = {};
         if (prop.tabIcon !== undefined) {
-          icon["icon"] = <prop.tabIcon className={classes.tabIcon} />;
+          icon["icon"] = <prop.tabIcon className={theme.tabIcon} />;
         }
         const pillsClasses = classNames({
-          [classes.pills]: true,
-          [classes.horizontalPills]: horizontal !== undefined,
-          [classes.pillsWithIcons]: prop.tabIcon !== undefined,
+          [theme.pills]: true,
+          [theme.horizontalPills]: horizontal !== undefined,
+          [theme.pillsWithIcons]: prop.tabIcon !== undefined,
         });
         return (
           <Tab
@@ -60,8 +59,8 @@ export default function NavPills(props) {
             {...icon}
             classes={{
               root: pillsClasses,
-              selected: classes[color],
-              wrapper: classes.tabWrapper,
+              selected: theme[color],
+              wrapper: theme.tabWrapper,
             }}
           />
         );
@@ -69,13 +68,13 @@ export default function NavPills(props) {
     </Tabs>
   );
   const tabContent = (
-    <div className={classes.contentWrapper}>
+    <div className={theme.contentWrapper}>
       {tabs.map((prop, key) => {
         if (key !== active) {
           return null;
         } else {
           return (
-            <div className={classes.tabContent} key={key}>
+            <div className={theme.tabContent} key={key}>
               {prop.tabContent}
             </div>
           );

@@ -1,20 +1,19 @@
 import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
 // core components
 import styles from "styles/jss/nextjs-material-kit/components/typographyStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function Quote(props) {
   const { text, author } = props;
-  const classes = useStyles();
   return (
-    <blockquote className={classes.defaultFontStyle + " " + classes.quote}>
-      <p className={classes.quoteText}>{text}</p>
-      <small className={classes.quoteAuthor}>{author}</small>
+    <blockquote className={theme.defaultFontStyle + " " + theme.quote}>
+      <p className={theme.quoteText}>{text}</p>
+      <small className={theme.quoteAuthor}>{author}</small>
     </blockquote>
   );
 }

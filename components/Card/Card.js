@@ -3,22 +3,21 @@ import React from "react";
 import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
+// @mui/icons-material
 
 // core components
 import styles from "styles/jss/nextjs-material-kit/components/cardStyle.js";
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function Card(props) {
-  const classes = useStyles();
   const { className, children, plain, carousel, ...rest } = props;
   const cardClasses = classNames({
-    [classes.card]: true,
-    [classes.cardPlain]: plain,
-    [classes.cardCarousel]: carousel,
+    [theme.card]: true,
+    [theme.cardPlain]: plain,
+    [theme.cardCarousel]: carousel,
     [className]: className !== undefined,
   });
   return (

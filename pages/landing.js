@@ -1,10 +1,10 @@
 import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+// @mui/material components
+import { createTheme } from "@mui/material/styles";
 
-// @material-ui/icons
+// @mui/icons-material
 
 // core components
 import Header from "components/Header/Header.js";
@@ -24,10 +24,9 @@ import WorkSection from "pages-sections/LandingPage-Sections/WorkSection.js";
 
 const dashboardRoutes = [];
 
-const useStyles = makeStyles(styles);
+const theme = createTheme(styles);
 
 export default function LandingPage(props) {
-  const classes = useStyles();
   const { ...rest } = props;
   return (
     <div>
@@ -44,10 +43,10 @@ export default function LandingPage(props) {
         {...rest}
       />
       <Parallax filter responsive image="/img/landing-bg.jpg">
-        <div className={classes.container}>
+        <div className={theme.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Your Story Starts With Us.</h1>
+              <h1 className={theme.title}>Your Story Starts With Us.</h1>
               <h4>
                 Every landing page needs a small description after the big bold
                 title, that{"'"}s why we added this text here. Add here all the
@@ -69,8 +68,8 @@ export default function LandingPage(props) {
           </GridContainer>
         </div>
       </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <div className={classes.container}>
+      <div className={classNames(theme.main, theme.mainRaised)}>
+        <div className={theme.container}>
           <ProductSection />
           <TeamSection />
           <WorkSection />
