@@ -3,6 +3,8 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import InputAdornment from "@mui/material/InputAdornment";
 import Icon from "@mui/material/Icon";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
 // @mui/icons-material
 import Email from "@mui/icons-material/Email";
 import People from "@mui/icons-material/People";
@@ -34,10 +36,40 @@ export default function LoginPage(props) {
     <div>
       <Header
         absolute
+        brand="auth playground"
         color="transparent"
-        brand="NextJS Material Kit"
-        rightLinks={<HeaderLinks />}
-        {...rest}
+        rightLinks={
+          <List className={classes.list}>
+            <ListItem className={classes.listItem}>
+              <Button
+                href="#pablo"
+                className={classes.navLink}
+                onClick={(e) => e.preventDefault()}
+                color="transparent">
+                Discover
+              </Button>
+            </ListItem>
+            <ListItem className={classes.listItem}>
+              <Button
+                href="#pablo"
+                className={classes.navLink}
+                onClick={(e) => e.preventDefault()}
+                color="transparent">
+                Wishlist
+              </Button>
+            </ListItem>
+            <ListItem className={classes.listItem}>
+              <Button
+                href="#pablo"
+                className={classes.registerNavLink}
+                onClick={(e) => e.preventDefault()}
+                color="rose"
+                round>
+                Register
+              </Button>
+            </ListItem>
+          </List>
+        }
       />
       <div
         className={classes.pageHeader}
@@ -45,14 +77,18 @@ export default function LoginPage(props) {
           backgroundImage: "url('/img/bg7.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "top center",
-        }}
-      >
+        }}>
         <div className={classes.container}>
           <GridContainer justify="center">
-            <GridItem xs={12} sm={6} md={4}>
+            <GridItem
+              xs={12}
+              sm={6}
+              md={4}>
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
+                  <CardHeader
+                    color="primary"
+                    className={classes.cardHeader}>
                     <h4>Login</h4>
                     <div className={classes.socialLine}>
                       <Button
@@ -60,8 +96,7 @@ export default function LoginPage(props) {
                         href="#pablo"
                         target="_blank"
                         color="transparent"
-                        onClick={(e) => e.preventDefault()}
-                      >
+                        onClick={(e) => e.preventDefault()}>
                         <i className={"fab fa-twitter"} />
                       </Button>
                       <Button
@@ -69,8 +104,7 @@ export default function LoginPage(props) {
                         href="#pablo"
                         target="_blank"
                         color="transparent"
-                        onClick={(e) => e.preventDefault()}
-                      >
+                        onClick={(e) => e.preventDefault()}>
                         <i className={"fab fa-facebook"} />
                       </Button>
                       <Button
@@ -78,8 +112,7 @@ export default function LoginPage(props) {
                         href="#pablo"
                         target="_blank"
                         color="transparent"
-                        onClick={(e) => e.preventDefault()}
-                      >
+                        onClick={(e) => e.preventDefault()}>
                         <i className={"fab fa-google-plus-g"} />
                       </Button>
                     </div>
@@ -136,7 +169,10 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg">
+                    <Button
+                      simple
+                      color="primary"
+                      size="lg">
                       Get started
                     </Button>
                   </CardFooter>
