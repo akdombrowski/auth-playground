@@ -145,7 +145,7 @@ export default function SectionJavascript() {
                     Datetime Picker
                   </InputLabel>
                   <br />
-                  <FormControl fullWidth>
+                  <FormControl variant="standard" fullWidth>
                     <Datetime
                       inputProps={{ placeholder: "Datetime Picker Here" }}
                     />
