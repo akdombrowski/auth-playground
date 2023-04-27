@@ -3,9 +3,9 @@ import React from "react";
 import classNames from "classnames";
 // react components for routing our app without refresh
 import Link from "next/link";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
+// @mui/material components
+import { makeStyles } from "@mui/styles";
+// @mui/icons-material
 // core components
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
@@ -74,13 +74,16 @@ export default function Components(props) {
         <SectionCarousel />
         <SectionCompletedExamples />
         <SectionLogin />
-        <GridItem md={12} className={classes.textCenter}>
+        <GridItem
+          md={12}
+          className={classes.textCenter}>
           <Link href="/login">
-            <a className={classes.link}>
-              <Button color="primary" size="lg" simple>
-                View Login Page
-              </Button>
-            </a>
+            <Button
+              color="primary"
+              size="lg"
+              simple>
+              View Login Page
+            </Button>
           </Link>
         </GridItem>
         <SectionExamples />

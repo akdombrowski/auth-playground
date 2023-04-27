@@ -16,8 +16,8 @@
 
 ### Updated dependencies
 ```
-@material-ui/core       4.9.13   →   4.11.4
-@material-ui/icons       4.9.1   →   4.11.2
+@mui/material       4.9.13   →   4.11.4
+@mui/icons-material       4.9.1   →   4.11.2
 classnames               2.2.6   →    2.3.1
 moment                  2.25.3   →   2.29.1
 next                     9.3.6   →   10.2.0
@@ -60,8 +60,8 @@ npm WARN react-datetime@3.0.4 requires a peer of react@^16.5.0 but none is insta
 ### Added dependencies
 ### Updated dependencies
 ```
-@material-ui/core        4.3.2   →    4.9.13
-@material-ui/icons       4.2.1   →     4.9.1
+@mui/material        4.3.2   →    4.9.13
+@mui/icons-material       4.2.1   →     4.9.1
 moment                  2.24.0   →    2.25.3
 next                     9.0.5   →     9.3.6
 next-images              1.1.2   →     1.3.1

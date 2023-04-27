@@ -1,9 +1,9 @@
 import React from "react";
 // react components for routing our app without refresh
 import Link from "next/link";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
+// @mui/material components
+import { makeStyles } from "@mui/styles";
+// @mui/icons-material
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -20,44 +20,52 @@ export default function SectionExamples() {
     <div className={classes.section}>
       <div className={classes.container}>
         <GridContainer justify="center">
-          <GridItem xs={12} sm={12} md={6}>
+          <GridItem
+            xs={12}
+            sm={12}
+            md={6}>
             <Link href="/landing">
-              <a className={classes.link}>
-                <img
-                  src="/img/landing.jpg"
-                  alt="..."
-                  className={
-                    classes.imgRaised +
-                    " " +
-                    classes.imgRounded +
-                    " " +
-                    classes.imgFluid
-                  }
-                />
-                <Button color="primary" size="lg" simple>
-                  View landing page
-                </Button>
-              </a>
+              <img
+                src="/img/landing.jpg"
+                alt="..."
+                className={
+                  classes.imgRaised +
+                  " " +
+                  classes.imgRounded +
+                  " " +
+                  classes.imgFluid
+                }
+              />
+              <Button
+                color="primary"
+                size="lg"
+                simple>
+                View landing page
+              </Button>
             </Link>
           </GridItem>
-          <GridItem xs={12} sm={12} md={6}>
+          <GridItem
+            xs={12}
+            sm={12}
+            md={6}>
             <Link href="/profile">
-              <a className={classes.link}>
-                <img
-                  src="/img/profile.jpg"
-                  alt="..."
-                  className={
-                    classes.imgRaised +
-                    " " +
-                    classes.imgRounded +
-                    " " +
-                    classes.imgFluid
-                  }
-                />
-                <Button color="primary" size="lg" simple>
-                  View profile page
-                </Button>
-              </a>
+              <img
+                src="/img/profile.jpg"
+                alt="..."
+                className={
+                  classes.imgRaised +
+                  " " +
+                  classes.imgRounded +
+                  " " +
+                  classes.imgFluid
+                }
+              />
+              <Button
+                color="primary"
+                size="lg"
+                simple>
+                View profile page
+              </Button>
             </Link>
           </GridItem>
         </GridContainer>
