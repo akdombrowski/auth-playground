@@ -92,7 +92,9 @@ export default function Header(props) {
           </IconButton>
         </Hidden>
       </Toolbar>
-      <Hidden mdUp implementation="js">
+      <Hidden
+        mdUp
+        implementation="js">
         <Drawer
           variant="temporary"
           anchor={"right"}
