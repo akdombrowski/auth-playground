@@ -9,6 +9,7 @@ import { makeStyles } from "@mui/styles";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Hidden from "@mui/material/Hidden";
 import Drawer from "@mui/material/Drawer";
@@ -62,7 +63,9 @@ export default function Header(props) {
     [classes.fixed]: fixed,
   });
   const brandComponent = (
-    <Link href="/components" as="/components">
+    <Link
+      href="/components"
+      as="/components">
       <Button className={classes.title}>{brand}</Button>
     </Link>
   );
@@ -72,14 +75,18 @@ export default function Header(props) {
         {leftLinks !== undefined ? brandComponent : null}
         <div className={classes.flex}>
           {leftLinks !== undefined ? (
-            <Hidden mdDown implementation="css">
+            <Hidden
+              mdDown
+              implementation="css">
               {leftLinks}
             </Hidden>
           ) : (
             brandComponent
           )}
         </div>
-        <Hidden mdDown implementation="css">
+        <Hidden
+          mdDown
+          implementation="css">
           {rightLinks}
         </Hidden>
         <Hidden mdUp>
@@ -102,8 +109,7 @@ export default function Header(props) {
           classes={{
             paper: classes.drawerPaper,
           }}
-          onClose={handleDrawerToggle}
-        >
+          onClose={handleDrawerToggle}>
           <div className={classes.appResponsive}>
             {leftLinks}
             {rightLinks}

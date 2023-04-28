@@ -35,18 +35,17 @@ export default function LoginPage(props) {
   return (
     <div>
       <Header
+        brand="auth-playground"
         absolute
-        brand="auth playground"
         color="transparent"
         rightLinks={
           <List
             className={classes.list}
-            sx={{ display: "flex" }}>
+            sx={{ display: { lg: "flex", md: "flex" } }}>
             <ListItem className={classes.listItem}>
               <Button
-                href="#pablo"
+                href="/components"
                 className={classes.navLink}
-                onClick={(e) => e.preventDefault()}
                 color="transparent">
                 Discover
               </Button>
